@@ -8,7 +8,7 @@ const NotFound = require('../errors/not_found'); // 404
 
 router.post('/signup', validatePersonalData, createUser);
 router.post('/signin', validateAuth, login);
-router.get('/signout', singOut);
+router.get('/signout', auth, singOut);
 router.use('/', auth, usersRouter);
 router.use('/', auth, moviesRouter);
 

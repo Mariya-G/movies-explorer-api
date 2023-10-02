@@ -4,27 +4,27 @@ const validator = require('validator');
 const moviesSchema = new mongoose.Schema({
   country: {
     type: String,
-    required: true,
+    required: [true, 'Заполните поле - страна'],
   },
   director: {
     type: String,
-    required: true,
+    required: [true, 'Заолните поле - режиссер'],
   },
   duration: {
     type: Number,
-    required: true,
+    required: [true, 'Заполните поле - продолжительность фильма'],
   },
   year: {
     type: String,
-    required: true,
+    required: [true, 'Заполните поле - год создания'],
   },
   description: {
     type: String,
-    required: true,
+    required: [true, 'Заполните поле - описание'],
   },
   image: {
     type: String,
-    required: true,
+    required: [true, 'Добавьте ссылку на постер фильма'],
     validate: {
       validator: (image) => validator.isURL(image),
       message: 'Некорректный URL',
@@ -32,7 +32,7 @@ const moviesSchema = new mongoose.Schema({
   },
   trailerLink: {
     type: String,
-    required: true,
+    required: [true, 'Добавьте ссылку на трейлер фильма'],
     validate: {
       validator: (trailer) => validator.isURL(trailer),
       message: 'Некорректный URL',
@@ -40,7 +40,7 @@ const moviesSchema = new mongoose.Schema({
   },
   thumbnail: {
     type: String,
-    required: true,
+    required: [true, 'Добавьте ссылку на миниатюрное изображение постера к фильму'],
     validate: {
       validator: (thumbnail) => validator.isURL(thumbnail),
       message: 'Некорректный URL',
@@ -57,11 +57,11 @@ const moviesSchema = new mongoose.Schema({
   },
   nameRU: {
     type: String,
-    required: true,
+    required: [true, 'Заполните поле - название RU'],
   },
   nameEN: {
     type: String,
-    required: true,
+    required: [true, 'Заполните поле - название EN'],
   },
 });
 

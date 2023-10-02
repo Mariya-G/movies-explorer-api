@@ -60,11 +60,10 @@ const deleteMovie = (req, res, next) => {
     .orFail(new NotFound('Такого фильма не существует!'))
     .then((film) => {
       if (!film.owner.equals(req.user._id)) {
-        next(new Forbidden('Нельзя удалить чужой фильм'));
-      } else {
-        film.deleteOne()
-          .then(() => res.send(film));
+        return next(new Forbidden('Нельзя удалить чужой фильм'));
       }
+      return film.deleteOne()
+        .then(() => res.send(film));
     })
     .catch((error) => {
       if (error.name === 'CastError') {
