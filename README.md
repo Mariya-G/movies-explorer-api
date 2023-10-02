@@ -5,6 +5,6 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.96.88
+IP-адрес 158.160.119.227
 
-Backend https://api.mesto.mg.nomoredomainsrocks.ru
+Backend https://api.movie.mg.nomoredomainsrocks.ru
